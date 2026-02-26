@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Categories – Imbento Masagana</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/landingpage.css">
+<style>
+    .page-header {
+        background: var(--surface);
+        padding: 40px 32px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #EDE9FE;
+    }
+    .page-header-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .breadcrumb {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 16px;
+    }
+    .breadcrumb a {
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .breadcrumb a:hover {
+        color: var(--brand);
+    }
+    .page-title {
+        font-family: 'Syne', sans-serif;
+        font-size: 42px;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 12px;
+    }
+    .main-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px 80px;
+    }
+    
+    .cat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .cat-card {
+        background: white;
+        border: 1px solid #F3F4F6;
+        border-radius: 12px;
+        padding: 24px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .cat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        border-color: #E2E8F0;
+    }
+    .cat-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+        background: #F8FAFC;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    .cat-name {
+        font-family: 'Syne', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 8px;
+    }
+    .cat-desc {
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 16px;
+        line-height: 1.5;
+        flex-grow: 1;
+    }
+    .cat-link {
+        color: var(--brand);
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .cat-link:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="header-sticky-wrapper">
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+      <div class="search-bar">
+        <svg width="16" height="16" fill="none" stroke="#6B6280" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search Filipino-made products...">
+      </div>
+      <div class="nav-actions">
+        <a href="loginandsignup.html?mode=buyer&tab=login" class="btn-ghost">Login</a>
+        <a href="loginandsignup.html?mode=buyer&tab=register" class="btn-solid">Sign Up</a>
+        <button class="cart-btn" onclick="toggleCart()">
+          <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <div class="cart-badge">3</div>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="subnav">
+    <div class="subnav-inner">
+      <div class="cat-dropdown-wrap">
+        <button class="cat-trigger" id="catTrigger" onclick="toggleCat()">
+          ☰ &nbsp;Categories <em class="arrow">▼</em>
+        </button>
+        <!-- Standard Mega Menu Placeholder -->
+         <div class="cat-menu" id="catMenu" style="display:none;"></div> 
+      </div>
+      <a href="index.html">🏠 Home</a>
+      <a href="wishlist.html">❤️ Wishlist</a>
+      <a href="orderhistory.html">🕐 Order History</a>
+      <a href="featuredproducts.html">⭐ Featured</a>
+      <a href="bestsellers.html">🔥 Best Sellers</a>
+      <a href="imbento-category.html">✨ New Products</a>
+      <a href="becomeaffiliate.html" class="verify-btn">✅ Verify Member</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> › <span>All Categories</span>
+        </div>
+        <h1 class="page-title">Explore Categories</h1>
+        <p class="page-desc">Browse our collection of proudly Filipino-made products by category.</p>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="cat-grid">
+        <!-- Category 1 -->
+        <div class="cat-card" onclick="window.location='imbento-category.html#cat-home'">
+            <div class="cat-icon">🏠</div>
+            <div class="cat-name">Home & Decor</div>
+            <div class="cat-desc">Handcrafted furniture, lighting, and decorations made from local materials like rattan, bamboo, and capiz.</div>
+            <a href="imbento-category.html#cat-home" class="cat-link">View Products →</a>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="cat-card" onclick="window.location='imbento-category.html#cat-beauty'">
+            <div class="cat-icon">💄</div>
+            <div class="cat-name">Beauty & Personal Care</div>
+            <div class="cat-desc">Organic soaps, lotions, and herbal remedies using natural Filipino ingredients like coconut oil and pili.</div>
+            <a href="imbento-category.html#cat-beauty" class="cat-link">View Products →</a>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="cat-card" onclick="window.location='imbento-category.html#cat-fashion'">
+            <div class="cat-icon">👗</div>
+            <div class="cat-name">Fashion & Accessories</div>
+            <div class="cat-desc">Traditional and modern wear, including Barongs, woven bags, and handmade jewelry.</div>
+            <a href="imbento-category.html#cat-fashion" class="cat-link">View Products →</a>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="cat-card" onclick="window.location='imbento-category.html#cat-tech'">
+            <div class="cat-icon">💻</div>
+            <div class="cat-name">Technology</div>
+            <div class="cat-desc">Innovative gadgets and accessories invented by local engineers and tech enthusiasts.</div>
+            <a href="imbento-category.html#cat-tech" class="cat-link">View Products →</a>
+        </div>
+
+        <!-- Category 5 -->
+        <div class="cat-card" onclick="window.location='imbento-category.html#cat-health'">
+            <div class="cat-icon">🌿</div>
+            <div class="cat-name">Health & Wellness</div>
+            <div class="cat-desc">Supplements, essential oils, and fitness gear for a healthier lifestyle.</div>
+            <a href="imbento-category.html#cat-health" class="cat-link">View Products →</a>
+        </div>
+
+        <!-- Category 6 -->
+        <div class="cat-card" onclick="window.location='imbento-category.html#cat-food'">
+            <div class="cat-icon">🍜</div>
+            <div class="cat-name">Food & Beverage</div>
+            <div class="cat-desc">Local delicacies, snacks, coffee, and preserves from various regions of the Philippines.</div>
+            <a href="imbento-category.html#cat-food" class="cat-link">View Products →</a>
+        </div>
+
+        <!-- Category 7 -->
+        <div class="cat-card" onclick="window.location='imbento-category.html#cat-arts'">
+            <div class="cat-icon">🎨</div>
+            <div class="cat-name">Arts & Crafts</div>
+            <div class="cat-desc">Paintings, sculptures, and pottery showcasing Filipino creativity and heritage.</div>
+            <a href="imbento-category.html#cat-arts" class="cat-link">View Products →</a>
+        </div>
+
+        <!-- Category 8 -->
+        <div class="cat-card" onclick="window.location='imbento-category.html#cat-edu'">
+            <div class="cat-icon">📚</div>
+            <div class="cat-name">Education</div>
+            <div class="cat-desc">Books, learning kits, and educational toys for students and lifelong learners.</div>
+            <a href="imbento-category.html#cat-edu" class="cat-link">View Products →</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-wrap">
+       <div class="footer-col">
+           <h4>Customer Care</h4>
+           <a href="support.html">Help Center</a>
+           <a href="returnpolicy.html">Returns & Refunds</a>
+           <a href="orderhistory.html">Track Order</a>
+           <a href="terms.html">Terms & Conditions</a>
+       </div> 
+       <div class="footer-col">
+           <h4>About Imbento</h4>
+           <a href="blog.html">Our Story</a>
+           <a href="blog.html">Blog</a>
+           <a href="becomeaffiliate.html">Sell on Imbento</a>
+           <a href="flashdeals.html">Flash Deals</a>
+       </div>
+       <div class="footer-col">
+           <h4>Categories</h4>
+           <a href="allcategories.html">All Categories</a>
+           <a href="imbento-category.html">New Arrivals</a>
+           <a href="bestsellers.html">Best Sellers</a>
+           <a href="featuredproducts.html">Featured</a>
+       </div>
+       <div class="footer-col newsletter">
+           <h4>Stay Updated</h4>
+           <p>Get the latest Filipino inventions sent to your inbox.</p>
+           <input type="email" placeholder="Enter your email">
+           <button>Subscribe</button>
+       </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 Imbento Masagana. All rights reserved. <a href="privacy.html" style="color:#94A3B8;text-decoration:none;margin-left:10px;">Privacy Policy</a>
+    </div>
+</footer>
+
+<script src="js/landingpage.js"></script>
+<script src="js/cart.js"></script>
+<script>
+    // Simple toggle logic for the mega menu if needed, reusing landingpage.js logic
+    function toggleCat() {
+        const menu = document.getElementById('catMenu');
+        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+</script>
+</body>
+</html>

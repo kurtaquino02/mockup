@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Return Policy – Imbento Masagana</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/landingpage.css">
+<link rel="stylesheet" href="css/cart.css">
+<style>
+.page-container { max-width: 800px; margin: 60px auto; padding: 0 24px; color: var(--text); min-height: 50vh; }
+.page-title { font-family: 'Syne', sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 32px; color: var(--text); }
+.content p { line-height: 1.7; margin-bottom: 20px; color: #4B5563; font-size: 16px; }
+.content h3 { font-family: 'Syne', sans-serif; font-size: 22px; margin: 40px 0 16px; font-weight: 700; color: var(--text); }
+.content ul { margin-bottom: 20px; padding-left: 20px; color: #4B5563; }
+.content li { margin-bottom: 8px; line-height: 1.6; }
+.btn-back { display: inline-block; margin-bottom: 24px; color: var(--brand); text-decoration: none; font-weight: 600; font-size: 14px; }
+.btn-back:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header-sticky-wrapper">
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+      <div class="search-bar">
+        <svg width="16" height="16" fill="none" stroke="#6B6280" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search Filipino-made products...">
+      </div>
+      <div class="nav-actions">
+        <a href="loginandsignup.html?mode=buyer&tab=login" class="btn-ghost">Login</a>
+        <a href="loginandsignup.html?mode=buyer&tab=register" class="btn-solid">Sign Up</a>
+        <button class="cart-btn" onclick="toggleCart()">
+          <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <div class="cart-badge">3</div>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="page-container">
+  <a href="index.html" class="btn-back">← Back to Home</a>
+  <h1 class="page-title">Return & Refund Policy</h1>
+  <div class="content">
+    <p>At Imbento Masagana, we want our customers to be completely satisfied with their purchases. If you are not satisfied with your order, we are here to help.</p>
+    
+    <h3>1. Returns</h3>
+    <p>You have 7 calendar days to return an item from the date you received it. To be eligible for a return, your item must be unused and in the same condition that you received it. Your item must be in the original packaging.</p>
+    
+    <h3>2. Refunds</h3>
+    <p>Once we receive your item, we will inspect it and notify you that we have received your returned item. We will immediately notify you on the status of your refund after inspecting the item. If your return is approved, we will initiate a refund to your original method of payment.</p>
+    
+    <h3>3. Shipping</h3>
+    <p>You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund.</p>
+
+    <h3>4. Contact Us</h3>
+    <p>If you have any questions on how to return your item to us, contact us at support@imbentomasagana.ph.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="logowhite.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+        <p>Imbento Masagana is the premier online platform dedicated exclusively to Filipino-invented and locally made products.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="returnpolicy.html">Return Policy</a>
+        <a href="support.html">Support Policy</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="blog.html">Blog</a>
+        <a href="loginandsignup.html?mode=seller&tab=register">Become a Seller</a>
+      </div>
+      <div class="footer-col">
+          <h5>Shop</h5>
+          <a href="featuredproducts.html">Featured Products</a>
+          <a href="bestsellers.html">Best Sellers</a>
+          <a href="imbento-category.html">New Arrivals</a>
+          <a href="flashdeals.html">Flash Deals</a>
+          <a href="allcategories.html">All Categories</a>
+      </div>
+      <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="contact-item"><span class="ci">📍</span><span>Unit 503 JMJ Building Pat Antonio Sta Mesa Manila</span></div>
+          <div class="contact-item"><span class="ci">📞</span><span>(02) 8664-3183</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Imbento Masagana. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/landingpage.js"></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout – Imbento Masagana</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/landingpage.css">
+<link rel="stylesheet" href="css/cart.css">
+<link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+<div class="header-sticky-wrapper">
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+      <div class="search-bar">
+        <svg width="16" height="16" fill="none" stroke="#6B6280" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search Filipino-made products...">
+      </div>
+      <div class="nav-actions">
+        <a href="loginandsignup.html?mode=buyer&tab=login" class="btn-ghost">Login</a>
+        <a href="loginandsignup.html?mode=buyer&tab=register" class="btn-solid">Sign Up</a>
+        <button class="cart-btn" onclick="toggleCart()">
+          <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <div class="cart-badge">3</div>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="subnav">
+    <div class="subnav-inner">
+
+      <!-- Categories Dropdown -->
+      <div class="cat-dropdown-wrap">
+        <button class="cat-trigger" id="catTrigger" onclick="toggleCat()">
+          ☰ &nbsp;Categories <em class="arrow">▼</em>
+        </button>
+
+        <div class="cat-menu" id="catMenu">
+          <!-- Sidebar -->
+          <div class="cat-sidebar">
+            <div class="cat-sidebar-item active" onmouseenter="showPanel('home')"><span class="cat-emoji">🏠</span> Home & Decor</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('beauty')"><span class="cat-emoji">💄</span> Beauty</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('fashion')"><span class="cat-emoji">👗</span> Fashion</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('tech')"><span class="cat-emoji">💻</span> Technology</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('health')"><span class="cat-emoji">🌿</span> Health</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('food')"><span class="cat-emoji">🍜</span> Food & Beverage</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('arts')"><span class="cat-emoji">🎨</span> Arts & Crafts</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('edu')"><span class="cat-emoji">📚</span> Education</div>
+          </div>
+
+          <!-- Panels -->
+          <div>
+            <div class="cat-panel active" id="panel-home">
+              <div class="cat-panel-title">🏠 Home & Decor</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Furniture</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Wall Art</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Lighting</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Storage & Organization</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Cleaning Tools</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Safety Products</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Bedding & Linens</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Kitchen Gadgets</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Wet Floor Signs</span>
+                <span class="cat-chip">Bamboo Decor</span>
+                <span class="cat-chip">Rattan Baskets</span>
+                <span class="cat-chip">Eco-Friendly</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-beauty">
+              <div class="cat-panel-title">💄 Beauty & Personal Care</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Skincare</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Hair Care</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Perfume & Fragrance</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Makeup</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Soaps & Body Wash</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Dental Care</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Natural Ingredients</span>
+                <span class="cat-chip">Shea Butter</span>
+                <span class="cat-chip">Men's Cologne</span>
+                <span class="cat-chip">Organic</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-fashion">
+              <div class="cat-panel-title">👗 Fashion & Accessories</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Women's Clothing</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Men's Clothing</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Bags & Totes</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Jewelry</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Footwear</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Hats & Headwear</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Handwoven</span>
+                <span class="cat-chip">Abaca</span>
+                <span class="cat-chip">Barong</span>
+                <span class="cat-chip">Bayong Bags</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-tech">
+              <div class="cat-panel-title">💻 Technology</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Gadgets & Accessories</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Cable Organizers</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Phone Cases</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Smart Devices</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Power Tools</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Audio</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Inventors</span>
+                <span class="cat-chip">Solar Powered</span>
+                <span class="cat-chip">Eco Tech</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-health">
+              <div class="cat-panel-title">🌿 Health & Wellness</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Herbal Remedies</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Vitamins & Supplements</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Muscle Relief</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Essential Oils</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Fitness Gear</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Mental Wellness</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Lagundi</span>
+                <span class="cat-chip">Sambong</span>
+                <span class="cat-chip">Moringa</span>
+                <span class="cat-chip">Herbal</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-food">
+              <div class="cat-panel-title">🍜 Food & Beverage</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Condiments & Sauces</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Snacks</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Jams & Preserves</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Beverages</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Sweets & Delicacies</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Dried Goods</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Calamansi</span>
+                <span class="cat-chip">Ube</span>
+                <span class="cat-chip">Bagoong</span>
+                <span class="cat-chip">Tablea</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-arts">
+              <div class="cat-panel-title">🎨 Arts & Crafts</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Pottery & Ceramics</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Paintings</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Handmade Jewelry</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Woodcraft</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Textile Art</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Sculpture</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Burnay Clay</span>
+                <span class="cat-chip">Paete Woodcraft</span>
+                <span class="cat-chip">Buri Weave</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-edu">
+              <div class="cat-panel-title">📚 Education</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Books & Publications</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Learning Kits</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Educational Toys</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Stationery</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>STEM Kits</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Art Supplies</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Filipino Authors</span>
+                <span class="cat-chip">Homeschool</span>
+                <span class="cat-chip">STEM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <a href="index.html">🏠 Home</a>
+      <a href="wishlist.html">❤️ Wishlist</a>
+      <a href="orderhistory.html">🕐 Order History</a>
+      <a href="featuredproducts.html">⭐ Featured</a>
+      <a href="bestsellers.html">🔥 Best Sellers</a>
+      <a href="imbento-category.html">✨ New Products</a>
+      <a href="becomeaffiliate.html" class="verify-btn">✅ Verify Member</a>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-container">
+    
+    <!-- Left Column -->
+    <div class="checkout-main">
+        <h1 class="section-head">Checkout</h1>
+        
+        <form id="checkout-form">
+            <!-- Contact Info -->
+            <div class="checkout-form-section">
+                <h3 style="margin-top:0;margin-bottom:20px;font-family:'Syne'">Contact Information</h3>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" required placeholder="juandelacruz@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" required placeholder="0917 123 4567">
+                </div>
+            </div>
+
+            <!-- Shipping Address -->
+            <div class="checkout-form-section">
+                <h3 style="margin-top:0;margin-bottom:20px;font-family:'Syne'">Shipping Address</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" required placeholder="Unit, Building, Street">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Region</label>
+                        <select>
+                            <option>Metro Manila</option>
+                            <option>Luzon</option>
+                            <option>Visayas</option>
+                            <option>Mindanao</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="checkout-form-section">
+                <h3 style="margin-top:0;margin-bottom:20px;font-family:'Syne'">Payment Method</h3>
+                <div class="radio-group">
+                    <label class="radio-option selected">
+                        <input type="radio" name="payment" checked>
+                        <div class="ro-label">Credit / Debit Card</div>
+                        <div class="ro-desc">Secure payment via PayMongo</div>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="payment">
+                        <div class="ro-label">GCash / Maya</div>
+                        <div class="ro-desc">Pay with your e-wallet</div>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="payment">
+                        <div class="ro-label">Cash on Delivery (COD)</div>
+                        <div class="ro-desc">Pay when you receive</div>
+                    </label>
+                </div>
+
+                <!-- Simple Card Input Simulation -->
+                <div style="margin-top:20px;padding-top:20px;border-top:1px solid #eee">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry</label>
+                            <input type="text" placeholder="MM / YY">
+                        </div>
+                        <div class="form-group">
+                            <label>CVC</label>
+                            <input type="text" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="checkout-btn">Place Order</button>
+            <div class="secure-badge">
+                🔒 Secure SSL Encryption • 100% Money Back Guarantee
+            </div>
+        </form>
+    </div>
+
+    <!-- Right Column: Summary -->
+    <div class="order-sidebar">
+        <div class="summary-card">
+            <h3 style="margin-top:0;margin-bottom:20px;font-family:'Syne'">Order Summary</h3>
+            
+            <div class="summary-items" id="order-summary-items">
+                <!-- Items injected by JS -->
+                <div style="padding:20px;text-align:center;color:#888">Loading cart...</div>
+            </div>
+
+            <div class="cost-row">
+                <span>Subtotal</span>
+                <span id="summary-subtotal">₱0</span>
+            </div>
+            <div class="cost-row">
+                <span>Shipping</span>
+                <span id="summary-shipping">₱0</span>
+            </div>
+            <div class="cost-row total">
+                <span>Total</span>
+                <span id="summary-total">₱0</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="logowhite.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+        <p>Imbento Masagana is the premier online platform dedicated exclusively to Filipino-invented and locally made products. Supporting Filipino innovation, one product at a time.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="returnpolicy.html">Return Policy</a>
+        <a href="support.html">Support Policy</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="blog.html">Blog</a>
+        <a href="loginandsignup.html?mode=seller&tab=register">Become a Seller</a>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="featuredproducts.html">Featured Products</a>
+        <a href="bestsellers.html">Best Sellers</a>
+        <a href="imbento-category.html">New Arrivals</a>
+        <a href="flashdeals.html">Flash Deals</a>
+        <a href="allcategories.html">All Categories</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <div class="contact-item"><span class="ci">📍</span><span>Unit 503 JMJ Building Pat Antonio Sta Mesa Manila</span></div>
+        <div class="contact-item"><span class="ci">📞</span><span>(02) 8664-3183</span></div>
+        <div class="contact-item"><span class="ci">✉️</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe97909891be97939c9b908a91d08e96">[email&#160;protected]</a></span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Imbento Masagana. All rights reserved.</p>
+      <div class="seller-links">
+        <a href="loginandsignup.html?mode=seller&tab=login">Login as Seller</a>
+        <a href="loginandsignup.html?mode=seller&tab=register">Become a Seller</a>
+        <a href="becomeaffiliate.html">Be an Affiliate Partner</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart Sidebar (for consistency) -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Your Cart (<span id="cartCountHeader">0</span>)</h2>
+    <button class="close-cart" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItemsContainer"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">₱0</span>
+    </div>
+    <button class="checkout-btn" disabled>You are on Checkout</button>
+    <button class="continue-btn" onclick="toggleCart()">Close</button>
+  </div>
+</div>
+
+<script src="js/cart.js"></script>
+<script src="js/landingpage.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

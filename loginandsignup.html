@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imbento Masagana – Login & Register</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/loginandsignup.css">
+</head>
+</head>
+<body>
+
+<!-- WHO ARE YOU -->
+<div class="who-wrap">
+  <div class="who-label">I am a:</div>
+  <div class="who-toggle">
+    <button class="who-btn active" id="who-buyer" onclick="setMode('buyer')">
+      <span class="wicon">🛍️</span> Buyer
+    </button>
+    <button class="who-btn" id="who-seller" onclick="setMode('seller')">
+      <span class="wicon">🏪</span> Seller
+    </button>
+  </div>
+</div>
+
+<!-- AUTH TABS -->
+<div class="tab-switcher" id="tabRow">
+  <button class="tab-btn active" id="tab0" onclick="switchTab(0)">Log In</button>
+  <button class="tab-btn" id="tab1" onclick="switchTab(1)">Create Account</button>
+</div>
+
+<!-- ═══════ BUYER LOGIN ═══════ -->
+<div class="card active" id="c-buyer-login">
+  <div class="left-panel lp-buyer">
+    <div class="panel-logo" style="text-align:center;"><img src="logowhite.png" alt="Imbento Masagana" style="height:60px;"></div>
+    <div class="panel-illustration">
+      <span class="illustration-emoji">🛍️</span>
+      <div class="panel-tagline"><strong>Welcome Back!</strong>Your favorite Filipino products are waiting for you.</div>
+    </div>
+    <div class="panel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+  </div>
+  <div class="right-panel">
+    <div class="mode-badge mb-buyer">🛍️ Buyer Account</div>
+    <div class="form-title">Welcome Back!</div>
+    <div class="form-subtitle">Login to your Imbento buyer account</div>
+    <div class="form-group">
+      <label>Email</label>
+      <div class="input-wrap"><span class="input-icon">✉️</span><input type="email" placeholder="you@email.com"></div>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <div class="input-wrap">
+        <span class="input-icon">🔒</span>
+        <input type="password" id="bl-pw" placeholder="Enter your password">
+        <button class="eye-btn" onclick="togglePw('bl-pw')">👁</button>
+      </div>
+    </div>
+    <div class="form-row">
+      <label class="remember"><input type="checkbox"> Remember me</label>
+      <a href="#" class="forgot">Forgot Password?</a>
+    </div>
+    <button class="btn-primary btn-buyer">LOGIN</button>
+    <div class="divider">or</div>
+    <div class="switch-text">Are you a seller? <a class="seller-link" onclick="setMode('seller')">Login as Seller →</a></div>
+    <div class="switch-text" style="margin-top:6px">Don't have an account? <a onclick="switchTab(1)">Register now!</a></div>
+    <a class="back-link" href="index.html">← Back to homepage</a>
+  </div>
+</div>
+
+<!-- ═══════ BUYER REGISTER ═══════ -->
+<div class="card" id="c-buyer-reg">
+  <div class="left-panel lp-buyer">
+    <div class="panel-logo" style="text-align:center;"><img src="logowhite.png" alt="Imbento Masagana" style="height:60px;"></div>
+    <div class="panel-illustration">
+      <span class="illustration-emoji">🇵🇭</span>
+      <div class="panel-tagline"><strong>Join the Community!</strong>Support local Filipino inventors and shop 100% homegrown products.</div>
+    </div>
+    <div class="panel-dots"><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+  </div>
+  <div class="right-panel">
+    <div class="mode-badge mb-buyer">🛍️ Buyer Account</div>
+    <div class="form-title">Create an Account</div>
+    <div class="form-subtitle">Join thousands of Filipino shoppers</div>
+    <div class="form-group"><label>Full Name</label>
+      <div class="input-wrap"><span class="input-icon">👤</span><input type="text" placeholder="Juan dela Cruz"></div></div>
+    <div class="form-group"><label>Email</label>
+      <div class="input-wrap"><span class="input-icon">✉️</span><input type="email" placeholder="you@email.com"></div></div>
+    <div class="form-group"><label>Password</label>
+      <div class="input-wrap"><span class="input-icon">🔒</span>
+        <input type="password" id="br-pw" placeholder="Create a strong password">
+        <button class="eye-btn" onclick="togglePw('br-pw')">👁</button></div></div>
+    <div class="form-group"><label>Confirm Password</label>
+      <div class="input-wrap"><span class="input-icon">🔒</span>
+        <input type="password" id="br-cpw" placeholder="Re-enter your password">
+        <button class="eye-btn" onclick="togglePw('br-cpw')">👁</button></div></div>
+    <div class="two-col">
+      <div class="form-group" style="margin-bottom:12px"><label>Organization</label>
+        <div class="input-wrap"><span class="input-icon">🏢</span><input type="text" placeholder="Optional"></div></div>
+      <div class="form-group" style="margin-bottom:12px"><label>Referral Code</label>
+        <div class="input-wrap"><span class="input-icon">🎟️</span><input type="text" placeholder="Optional"></div></div>
+    </div>
+    <div class="terms-note"><input type="checkbox">
+      <span>By signing up you agree to our <a href="terms.html">Terms & Conditions</a> and <a href="privacy.html">Privacy Policy</a>.</span></div>
+    <button class="btn-primary btn-buyer">SIGN UP</button>
+    <div class="divider">or</div>
+    <div class="switch-text">Want to sell? <a class="seller-link" onclick="setMode('seller');switchTab(1)">Become a Seller →</a></div>
+    <div class="switch-text" style="margin-top:6px">Already have an account? <a onclick="switchTab(0)">Log In</a></div>
+    <a class="back-link" href="index.html">← Back to homepage</a>
+  </div>
+</div>
+
+<!-- ═══════ SELLER LOGIN ═══════ -->
+<div class="card" id="c-seller-login">
+  <div class="left-panel lp-seller">
+    <div class="panel-logo" style="text-align:center;"><img src="logowhite.png" alt="Imbento Masagana" style="height:60px;"></div>
+    <div class="panel-perks">
+      <div class="panel-perk"><div class="pp-icon">🏪</div><div><strong>Seller Dashboard</strong><span>Manage products, orders & payouts</span></div></div>
+      <div class="panel-perk"><div class="pp-icon">📦</div><div><strong>Nationwide Reach</strong><span>Sell to thousands of Filipino buyers</span></div></div>
+      <div class="panel-perk"><div class="pp-icon">💰</div><div><strong>Bi-Weekly Payouts</strong><span>Receive earnings every 2 weeks</span></div></div>
+      <div class="panel-perk"><div class="pp-icon">📊</div><div><strong>Live Analytics</strong><span>Track sales, views & conversions</span></div></div>
+    </div>
+    <div class="panel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+  </div>
+  <div class="right-panel">
+    <div class="mode-badge mb-seller">🏪 Seller Account</div>
+    <div class="form-title">Seller Login</div>
+    <div class="form-subtitle">Access your Imbento seller portal</div>
+    <div class="seller-notice">
+      <span>⚠️</span>
+      <span>This login is for <strong>verified Imbento sellers only</strong>. If you're a buyer, switch the toggle above to "Buyer".</span>
+    </div>
+    <div class="form-group"><label>Seller Email / Store ID</label>
+      <div class="input-wrap"><span class="input-icon">🏪</span><input type="email" placeholder="store@email.com or STORE-12345"></div></div>
+    <div class="form-group"><label>Password</label>
+      <div class="input-wrap"><span class="input-icon">🔒</span>
+        <input type="password" id="sl-pw" placeholder="Enter your password">
+        <button class="eye-btn" onclick="togglePw('sl-pw')">👁</button></div></div>
+    <div class="form-row">
+      <label class="remember"><input type="checkbox"> Keep me signed in</label>
+      <a href="#" class="forgot">Forgot Password?</a>
+    </div>
+    <button class="btn-primary btn-seller-login">LOGIN TO SELLER PORTAL</button>
+    <div class="divider">or</div>
+    <div class="switch-text">Not a seller yet? <a class="green-link" onclick="switchTab(1)">Open Your Store →</a></div>
+    <div class="switch-text" style="margin-top:6px">Looking to shop? <a onclick="setMode('buyer')">Switch to Buyer Login</a></div>
+    <a class="back-link" href="index.html">← Back to homepage</a>
+  </div>
+</div>
+
+<!-- ═══════ SELLER REGISTER ═══════ -->
+<div class="card wide" id="c-seller-reg">
+  <div class="left-panel lp-seller-reg">
+    <div class="panel-logo" style="text-align:center;"><img src="logowhite.png" alt="Imbento Masagana" style="height:60px;"></div>
+    <div class="panel-perks">
+      <div class="panel-perk"><div class="pp-icon">🚀</div><div><strong>Free to Start</strong><span>No listing or setup fees</span></div></div>
+      <div class="panel-perk"><div class="pp-icon">📣</div><div><strong>Built-in Marketing</strong><span>We promote your products for you</span></div></div>
+      <div class="panel-perk"><div class="pp-icon">🤝</div><div><strong>Dedicated Support</strong><span>Our team helps you grow</span></div></div>
+      <div class="panel-perk"><div class="pp-icon">🇵🇭</div><div><strong>100% Filipino Platform</strong><span>Proudly supporting local inventors</span></div></div>
+    </div>
+    <div class="panel-dots"><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
+  </div>
+  <div class="right-panel" style="padding:36px 38px;">
+    <div class="mode-badge mb-seller-reg">🏪 Become a Seller</div>
+    <div class="form-title">Open Your Store</div>
+    <div class="form-subtitle">Sell your Filipino-made products to thousands of buyers</div>
+    <div class="step-pills">
+      <div class="step-pill current">① Account</div>
+      <div class="step-pill">② Store Info</div>
+      <div class="step-pill">③ Verify ID</div>
+    </div>
+    <div class="green-notice">
+      <span>🇵🇭</span>
+      <span>Imbento Masagana is exclusively for <strong>Filipino inventors and local product makers</strong>. Products must be locally made or designed in the Philippines.</span>
+    </div>
+    <div class="two-col">
+      <div class="form-group"><label>Full Name</label>
+        <div class="input-wrap"><span class="input-icon">👤</span><input type="text" placeholder="Juan dela Cruz"></div></div>
+      <div class="form-group"><label>Store / Brand Name</label>
+        <div class="input-wrap"><span class="input-icon">🏪</span><input type="text" placeholder="Your Store Name"></div></div>
+    </div>
+    <div class="two-col">
+      <div class="form-group"><label>Email Address</label>
+        <div class="input-wrap"><span class="input-icon">✉️</span><input type="email" placeholder="store@email.com"></div></div>
+      <div class="form-group"><label>Mobile Number</label>
+        <div class="input-wrap"><span class="input-icon">📱</span><input type="tel" placeholder="+63 9xx xxx xxxx"></div></div>
+    </div>
+    <div class="form-group"><label>Product Category</label>
+      <div class="input-wrap no-icon">
+        <select>
+          <option value="">What do you sell?</option>
+          <option>🏠 Home & Decor Maintenance</option>
+          <option>💄 Beauty & Personal Care</option>
+          <option>👗 Fashion & Accessories</option>
+          <option>💻 Technology & Gadgets</option>
+          <option>🌿 Health & Wellness</option>
+          <option>🍜 Food & Beverage</option>
+          <option>🎨 Arts & Crafts</option>
+          <option>📚 Education</option>
+        </select>
+      </div></div>
+    <div class="two-col">
+      <div class="form-group"><label>Password</label>
+        <div class="input-wrap"><span class="input-icon">🔒</span>
+          <input type="password" id="sr-pw" placeholder="Create password">
+          <button class="eye-btn" onclick="togglePw('sr-pw')">👁</button></div></div>
+      <div class="form-group"><label>Confirm Password</label>
+        <div class="input-wrap"><span class="input-icon">🔒</span>
+          <input type="password" id="sr-cpw" placeholder="Re-enter password">
+          <button class="eye-btn" onclick="togglePw('sr-cpw')">👁</button></div></div>
+    </div>
+    <div class="terms-note"><input type="checkbox">
+      <span>I agree to Imbento's <a href="#">Seller Terms</a> and <a href="#">Privacy Policy</a>, and confirm my products are Filipino-made.</span></div>
+    <button class="btn-primary btn-seller-reg">CONTINUE TO STORE SETUP →</button>
+    <div class="switch-text">Already a seller? <a onclick="switchTab(0)">Login to Seller Portal</a></div>
+    <a class="back-link" href="index.html">← Back to homepage</a>
+  </div>
+</div>
+
+<script src="js/loginandsignup.js"></script>
+</body>
+</html>

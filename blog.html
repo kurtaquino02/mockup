@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog – Imbento Masagana</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/landingpage.css">
+<link rel="stylesheet" href="css/cart.css">
+<style>
+.page-container { max-width: 1100px; margin: 60px auto; padding: 0 24px; color: var(--text); min-height: 50vh; }
+.page-title { font-family: 'Syne', sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 12px; color: var(--text); }
+.page-subtitle { color: #6B7280; font-size: 18px; margin-bottom: 48px; }
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+}
+.blog-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: transform 0.2s;
+    cursor: pointer;
+    border: 1px solid #F3F4F6;
+}
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+}
+.blog-img {
+    height: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+}
+.blog-date-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255,255,255,0.9);
+    padding: 8px 12px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    color: var(--dark);
+    font-size: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.blog-date-tag .day {
+    display: block;
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+.blog-content {
+    padding: 24px;
+}
+.blog-cat {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+.blog-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    color: var(--text);
+}
+.blog-excerpt {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+.btn-back { display: inline-block; margin-bottom: 24px; color: var(--brand); text-decoration: none; font-weight: 600; font-size: 14px; }
+.btn-back:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header-sticky-wrapper">
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+      <div class="search-bar">
+        <svg width="16" height="16" fill="none" stroke="#6B6280" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search Filipino-made products...">
+      </div>
+      <div class="nav-actions">
+        <a href="loginandsignup.html?mode=buyer&tab=login" class="btn-ghost">Login</a>
+        <a href="loginandsignup.html?mode=buyer&tab=register" class="btn-solid">Sign Up</a>
+        <button class="cart-btn" onclick="toggleCart()">
+          <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <div class="cart-badge">3</div>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="page-container">
+  <a href="index.html" class="btn-back">← Back to Home</a>
+  <h1 class="page-title">Stories & Updates</h1>
+  <p class="page-subtitle">Latest news from the Imbento Masagana community.</p>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-img" style="background:linear-gradient(135deg,#2D1B69,var(--brand))">🇵🇭<div class="blog-date-tag"><span class="day">26</span>Feb</div></div>
+      <div class="blog-content">
+        <div class="blog-cat">Filipino Innovation</div>
+        <div class="blog-title">Top Filipino Products Changing the Market in 2026</div>
+        <div class="blog-excerpt">Discover how local inventors and entrepreneurs are making waves not just in the Philippines but across Southeast Asia.</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img" style="background:linear-gradient(135deg,#0F172A,#1E3A5F)">💡<div class="blog-date-tag"><span class="day">20</span>Feb</div></div>
+      <div class="blog-content">
+        <div class="blog-cat">Tips & Tricks</div>
+        <div class="blog-title">How to Spot Quality Filipino-Made Products</div>
+        <div class="blog-excerpt">A comprehensive guide to identifying authentic, high-quality locally made goods when shopping online.</div>
+      </div>
+    </div>
+    <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#F59E0B,#D97706)">🌾<div class="blog-date-tag"><span class="day">15</span>Feb</div></div>
+        <div class="blog-content">
+          <div class="blog-cat">Community</div>
+          <div class="blog-title">Supporting Our Local Farmers</div>
+          <div class="blog-excerpt">How your purchase of food products directly impacts the livelihood of farmers in rural provinces.</div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="logo.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+        <p>Imbento Masagana is the premier online platform dedicated exclusively to Filipino-invented and locally made products.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="returnpolicy.html">Return Policy</a>
+        <a href="support.html">Support Policy</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="blog.html">Blog</a>
+        <a href="loginandsignup.html?mode=seller&tab=register">Become a Seller</a>
+      </div>
+      <div class="footer-col">
+          <h5>Shop</h5>
+          <a href="featuredproducts.html">Featured Products</a>
+          <a href="bestsellers.html">Best Sellers</a>
+          <a href="imbento-category.html">New Arrivals</a>
+          <a href="flashdeals.html">Flash Deals</a>
+          <a href="allcategories.html">All Categories</a>
+      </div>
+      <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="contact-item"><span class="ci">📍</span><span>Unit 503 JMJ Building Pat Antonio Sta Mesa Manila</span></div>
+          <div class="contact-item"><span class="ci">📞</span><span>(02) 8664-3183</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Imbento Masagana. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/landingpage.js"></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Sellers – Imbento Masagana</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/featuredproducts.css">
+<link rel="stylesheet" href="css/cart.css">
+<style>
+  /* Page specific overrides */
+  .masthead { background: linear-gradient(135deg, #0F0A1E 0%, #1E1B4B 100%); }
+  .best-seller-badge { background: var(--gold); color: var(--dark); font-weight: 800; padding: 4px 10px; border-radius: 50px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; position: absolute; top: 12px; left: 12px; z-index: 2; }
+  .rank-num { font-family: 'Syne', sans-serif; font-size: 64px; font-weight: 800; color: rgba(255,255,255,0.1); position: absolute; bottom: -20px; left: -10px; line-height: 1; pointer-events: none; z-index: 1; }
+  .feat-card:hover .rank-num { color: rgba(91,33,182,0.1); }
+</style>
+</head>
+<body>
+
+<div class="header-sticky-wrapper">
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logo.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+    <div class="search-bar">
+      <svg width="15" height="15" fill="none" stroke="#6B6280" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search Filipino-made products...">
+    </div>
+    <div class="nav-actions">
+      <a href="loginandsignup.html?mode=buyer&tab=login" class="btn-ghost">Login</a>
+      <a href="loginandsignup.html?mode=buyer&tab=register" class="btn-solid">Sign Up</a>
+      <button class="cart-btn" onclick="toggleCart()">
+        <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <div class="cart-badge" id="cartCount">0</div>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="subnav">
+  <div class="subnav-inner">
+      <div class="cat-dropdown-wrap">
+        <button class="cat-trigger" id="catTrigger" onclick="toggleCat()">
+          ☰ &nbsp;Categories <em class="arrow">▼</em>
+        </button>
+        <!-- Reusing existing category menu structure -->
+        <div class="cat-menu" id="catMenu">
+          <div class="cat-sidebar">
+            <div class="cat-sidebar-item active" onmouseenter="showPanel('home')"><span class="cat-emoji">🏠</span> Home & Decor</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('beauty')"><span class="cat-emoji">💄</span> Beauty</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('fashion')"><span class="cat-emoji">👗</span> Fashion</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('tech')"><span class="cat-emoji">💻</span> Technology</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('health')"><span class="cat-emoji">🌿</span> Health</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('food')"><span class="cat-emoji">🍜</span> Food & Beverage</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('arts')"><span class="cat-emoji">🎨</span> Arts & Crafts</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('edu')"><span class="cat-emoji">📚</span> Education</div>
+          </div>
+          <!-- Panels (Content omitted for brevity, reusing featured.js logic requires structure presence) -->
+           <div>
+            <div class="cat-panel active" id="panel-home"><div class="cat-panel-title">🏠 Home & Decor</div><div class="cat-subcategories"><a class="cat-sub-link">Furniture</a></div></div>
+            <div class="cat-panel" id="panel-beauty"><div class="cat-panel-title">💄 Beauty</div></div>
+            <div class="cat-panel" id="panel-fashion"><div class="cat-panel-title">👗 Fashion</div></div>
+            <div class="cat-panel" id="panel-tech"><div class="cat-panel-title">💻 Technology</div></div>
+            <div class="cat-panel" id="panel-health"><div class="cat-panel-title">🌿 Health</div></div>
+            <div class="cat-panel" id="panel-food"><div class="cat-panel-title">🍜 Food</div></div>
+            <div class="cat-panel" id="panel-arts"><div class="cat-panel-title">🎨 Arts</div></div>
+            <div class="cat-panel" id="panel-edu"><div class="cat-panel-title">📚 Education</div></div>
+          </div>
+        </div>
+      </div>
+
+    <a href="index.html">🏠 Home</a>
+    <a href="wishlist.html">❤️ Wishlist</a>
+    <a href="orderhistory.html">🕐 Order History</a>
+    <a href="featuredproducts.html">⭐ Featured</a>
+    <a href="bestsellers.html" class="active">🔥 Best Sellers</a>
+    <a href="imbento-category.html">✨ New Products</a>
+    <a href="becomeaffiliate.html" class="verify-btn">✅ Verify Member</a>
+  </div>
+</div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-label">🏆 Top 100</div>
+    <div class="masthead-grid" style="min-height:300px;align-items:center;grid-template-columns:1fr;">
+      <div class="masthead-left" style="padding-bottom:0;text-align:center;margin:0 auto;">
+        <h1 class="masthead-title">Philippines'<br><em>Most Loved</em></h1>
+        <p class="masthead-desc" style="margin:20px auto;">Discover the products our community can't stop talking about. Verified purchases, rave reviews.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP SELLERS GRID -->
+<div class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">🔥 Trending Now</div>
+      <h2 class="section-title">All-Time <em>Favorites</em></h2>
+    </div>
+    <div style="font-size:13px;color:var(--muted);">Showing 1-8 of 256 results</div>
+  </div>
+  
+  <div class="feat-grid">
+    <!-- Rank 1 -->
+    <div class="feat-card large" onclick="window.location='product.html?id=102'">
+      <div class="fc-img" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">
+        <span class="rank-num">01</span>
+        <span class="fc-emoji">🌿</span>
+        <div class="fc-badges"><div class="fc-badge top">#1 Best Seller</div></div>
+        <div class="fc-hover-btns"><button class="fc-hover-btn" onclick="wishItem(this, {id:102, name:'Herbal Muscle Balm', price:450, image:'🌿'});event.stopPropagation()">♡</button></div>
+      </div>
+      <div class="fc-info">
+        <div class="fc-cat">🌿 Health & Wellness</div>
+        <div class="fc-name">Herbal Muscle Relief Balm</div>
+        <div class="fc-desc">The undisputed champion of relief. Over 50,000 jars sold nationwide. Made from 100% organic Lagundi and Sambong extracts.</div>
+        <div class="fc-stars">★★★★★ <span>(2,400+ reviews)</span></div>
+        <div class="fc-seller"><div class="fc-seller-dot"></div> HerbalPH · Davao</div>
+        <div class="fc-footer">
+          <div><div class="fc-price">₱450</div></div>
+          <button class="fc-add-btn" onclick="addToCart({id:102, name:'Herbal Muscle Balm', price:450, image:'🌿'}, false);event.stopPropagation()">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg> Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rank 2 -->
+    <div class="feat-card" onclick="window.location='product.html?id=104'">
+      <div class="fc-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+        <span class="rank-num">02</span>
+        <span class="fc-emoji">📦</span>
+        <div class="fc-hover-btns"><button class="fc-hover-btn" onclick="wishItem(this, {id:104, name:'Bamboo Shelf', price:380, image:'📦'});event.stopPropagation()">♡</button></div>
+      </div>
+      <div class="fc-info">
+        <div class="fc-cat">📦 Organization</div>
+        <div class="fc-name">Bamboo Shelf Organizer</div>
+        <div class="fc-stars">★★★★★ <span>(1,850 reviews)</span></div>
+        <div class="fc-footer">
+          <div><div class="fc-price">₱380</div></div>
+          <button class="fc-add-btn" onclick="addToCart({id:104, name:'Bamboo Shelf', price:380, image:'📦'}, false);event.stopPropagation()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rank 3 -->
+    <div class="feat-card" onclick="window.location='product.html?id=105'">
+      <div class="fc-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
+        <span class="rank-num">03</span>
+        <span class="fc-emoji">🌊</span>
+        <div class="fc-hover-btns"><button class="fc-hover-btn" onclick="wishItem(this, {id:105, name:'Prestige Perfume', price:700, image:'🌊'});event.stopPropagation()">♡</button></div>
+      </div>
+      <div class="fc-info">
+        <div class="fc-cat">💄 Beauty</div>
+        <div class="fc-name">Men's Prestige Perfume</div>
+        <div class="fc-stars">★★★★★ <span>(920 reviews)</span></div>
+        <div class="fc-footer">
+          <div><div class="fc-price">₱700</div></div>
+          <button class="fc-add-btn" onclick="addToCart({id:105, name:'Prestige Perfume', price:700, image:'🌊'}, false);event.stopPropagation()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rank 4 -->
+    <div class="feat-card" onclick="window.location='product.html?id=101'">
+      <div class="fc-img" style="background:linear-gradient(135deg,#0F0A1E,#2D1B69)">
+        <span class="rank-num">04</span>
+        <span class="fc-emoji">⚠️</span>
+        <div class="fc-hover-btns"><button class="fc-hover-btn" onclick="wishItem(this, {id:101, name:'Wet Floor Sign', price:700, image:'⚠️'});event.stopPropagation()">♡</button></div>
+      </div>
+      <div class="fc-info">
+        <div class="fc-cat">🏠 Decor</div>
+        <div class="fc-name">Safety Wet Floor Sign</div>
+        <div class="fc-stars">★★★★★ <span>(640 reviews)</span></div>
+        <div class="fc-footer">
+          <div><div class="fc-price">₱700</div></div>
+          <button class="fc-add-btn" onclick="addToCart({id:101, name:'Wet Floor Sign', price:700, image:'⚠️'}, false);event.stopPropagation()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rank 5 -->
+    <div class="feat-card" onclick="window.location='product.html?id=103'">
+      <div class="fc-img" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7)">
+        <span class="rank-num">05</span>
+        <span class="fc-emoji">💡</span>
+        <div class="fc-hover-btns"><button class="fc-hover-btn" onclick="wishItem(this, {id:103, name:'Solar Lamp', price:950, image:'💡'});event.stopPropagation()">♡</button></div>
+      </div>
+      <div class="fc-info">
+        <div class="fc-cat">💡 Lighting</div>
+        <div class="fc-name">Solar Garden Lamp</div>
+        <div class="fc-stars">★★★★★ <span>(510 reviews)</span></div>
+        <div class="fc-footer">
+          <div><div class="fc-price">₱950</div></div>
+          <button class="fc-add-btn" onclick="addToCart({id:103, name:'Solar Lamp', price:950, image:'💡'}, false);event.stopPropagation()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Rank 6 (New Item) -->
+    <div class="feat-card" onclick="window.location='product.html?id=201'">
+      <div class="fc-img" style="background:linear-gradient(135deg,#ECFDF5,#10B981)">
+        <span class="rank-num">06</span>
+        <span class="fc-emoji">🥥</span>
+        <div class="fc-hover-btns"><button class="fc-hover-btn" onclick="wishItem(this, {id:201, name:'Virgin Coconut Oil', price:250, image:'🥥'});event.stopPropagation()">♡</button></div>
+      </div>
+      <div class="fc-info">
+        <div class="fc-cat">🌿 Health</div>
+        <div class="fc-name">Virgin Coconut Oil</div>
+        <div class="fc-stars">★★★★★ <span>(432 reviews)</span></div>
+        <div class="fc-footer">
+          <div><div class="fc-price">₱250</div></div>
+          <button class="fc-add-btn" onclick="addToCart({id:201, name:'Virgin Coconut Oil', price:250, image:'🥥'}, false);event.stopPropagation()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    
+     <!-- Rank 7 (New Item) -->
+    <div class="feat-card" onclick="window.location='product.html?id=202'">
+      <div class="fc-img" style="background:linear-gradient(135deg,#FDF4FF,#D8B4FE)">
+        <span class="rank-num">07</span>
+        <span class="fc-emoji">🍫</span>
+        <div class="fc-hover-btns"><button class="fc-hover-btn" onclick="wishItem(this, {id:202, name:'Davao Dark Chocolate', price:180, image:'🍫'});event.stopPropagation()">♡</button></div>
+      </div>
+      <div class="fc-info">
+        <div class="fc-cat">🍜 Food</div>
+        <div class="fc-name">Davao Dark Chocolate</div>
+        <div class="fc-stars">★★★★★ <span>(389 reviews)</span></div>
+        <div class="fc-footer">
+          <div><div class="fc-price">₱180</div></div>
+          <button class="fc-add-btn" onclick="addToCart({id:202, name:'Davao Dark Chocolate', price:180, image:'🍫'}, false);event.stopPropagation()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    
+     <!-- Rank 8 (New Item) -->
+    <div class="feat-card" onclick="window.location='product.html?id=203'">
+      <div class="fc-img" style="background:linear-gradient(135deg,#FFEDD5,#FB923C)">
+        <span class="rank-num">08</span>
+        <span class="fc-emoji">🥭</span>
+        <div class="fc-hover-btns"><button class="fc-hover-btn" onclick="wishItem(this, {id:203, name:'Dried Mangoes', price:320, image:'🥭'});event.stopPropagation()">♡</button></div>
+      </div>
+      <div class="fc-info">
+        <div class="fc-cat">🍜 Food</div>
+        <div class="fc-name">Cebu Dried Mangoes</div>
+        <div class="fc-stars">★★★★★ <span>(312 reviews)</span></div>
+        <div class="fc-footer">
+          <div><div class="fc-price">₱320</div></div>
+          <button class="fc-add-btn" onclick="addToCart({id:203, name:'Dried Mangoes', price:320, image:'🥭'}, false);event.stopPropagation()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="logowhite.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+        <p>Imbento Masagana is the premier online platform dedicated exclusively to Filipino-invented and locally made products. Supporting Filipino innovation, one product at a time.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="returnpolicy.html">Return Policy</a>
+        <a href="support.html">Support Policy</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="blog.html">Blog</a>
+        <a href="loginandsignup.html?mode=seller&tab=register">Become a Seller</a>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="featuredproducts.html">Featured Products</a>
+        <a href="bestsellers.html">Best Sellers</a>
+        <a href="imbento-category.html">New Arrivals</a>
+        <a href="flashdeals.html">Flash Deals</a>
+        <a href="allcategories.html">All Categories</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <div class="contact-item"><span class="ci">📍</span><span>Unit 503 JMJ Building Pat Antonio Sta Mesa Manila</span></div>
+        <div class="contact-item"><span class="ci">📞</span><span>(02) 8664-3183</span></div>
+        <div class="contact-item"><span class="ci">✉️</span><span><a href="mailto:support@imbento.ph" class="__cf_email__">support@imbento.ph</a></span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Imbento Masagana. All rights reserved.</p>
+      <div class="seller-links">
+        <a href="loginandsignup.html?mode=seller&tab=login">Login as Seller</a>
+        <a href="loginandsignup.html?mode=seller&tab=register">Become a Seller</a>
+        <a href="becomeaffiliate.html">Be an Affiliate Partner</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><div class="toast-icon" id="toastIcon">✓</div><span id="toastMsg"></span></div>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><h2>Your Cart (<span id="cartCountHeader">0</span>)</h2><button class="close-cart" onclick="toggleCart()">✕</button></div>
+  <div class="cart-items" id="cartItemsContainer"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">₱0</span></div>
+    <button class="checkout-btn" onclick="window.location='checkout.html'">Proceed to Checkout</button>
+    <button class="continue-btn" onclick="toggleCart()">Continue Shopping</button>
+  </div>
+</div>
+
+<script src="js/cart.js"></script>
+<script src="js/wishlist-data.js"></script>
+<script src="js/featured.js"></script>
+</body>
+</html>

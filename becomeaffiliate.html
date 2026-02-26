@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become an Affiliate – Imbento Masagana</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/becomeaffiliate.css">
+<link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+<!-- <div class="announce">🎉 &nbsp;Free shipping on orders above ₱999 &nbsp;|&nbsp; Use code <strong>PINOY2026</strong> for 10% off</div> -->
+
+<!-- NAV -->
+<div class="header-sticky-wrapper">
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+      <div class="search-bar">
+        <svg width="15" height="15" fill="none" stroke="#6B6280" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search Filipino-made products...">
+      </div>
+      <div class="nav-actions">
+        <a href="loginandsignup.html?mode=buyer&tab=login" class="btn-ghost">Login</a>
+        <a href="loginandsignup.html?mode=buyer&tab=register" class="btn-solid">Sign Up</a>
+        <button class="cart-btn" onclick="toggleCart()">
+          <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <div class="cart-badge">0</div>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="subnav">
+    <div class="subnav-inner">
+      <!-- Categories Dropdown -->
+      <div class="cat-dropdown-wrap">
+        <button class="cat-trigger" id="catTrigger" onclick="toggleCat()">
+          ☰ &nbsp;Categories <em class="arrow">▼</em>
+        </button>
+
+        <div class="cat-menu" id="catMenu">
+          <!-- Sidebar -->
+          <div class="cat-sidebar">
+            <div class="cat-sidebar-item active" onmouseenter="showPanel('home')"><span class="cat-emoji">🏠</span> Home & Decor</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('beauty')"><span class="cat-emoji">💄</span> Beauty</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('fashion')"><span class="cat-emoji">👗</span> Fashion</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('tech')"><span class="cat-emoji">💻</span> Technology</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('health')"><span class="cat-emoji">🌿</span> Health</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('food')"><span class="cat-emoji">🍜</span> Food & Beverage</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('arts')"><span class="cat-emoji">🎨</span> Arts & Crafts</div>
+            <div class="cat-sidebar-item" onmouseenter="showPanel('edu')"><span class="cat-emoji">📚</span> Education</div>
+          </div>
+
+          <!-- Panels -->
+          <div>
+            <div class="cat-panel active" id="panel-home">
+              <div class="cat-panel-title">🏠 Home & Decor</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Furniture</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Wall Art</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Lighting</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Storage & Organization</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Cleaning Tools</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Safety Products</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Bedding & Linens</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Kitchen Gadgets</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Wet Floor Signs</span>
+                <span class="cat-chip">Bamboo Decor</span>
+                <span class="cat-chip">Rattan Baskets</span>
+                <span class="cat-chip">Eco-Friendly</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-beauty">
+              <div class="cat-panel-title">💄 Beauty & Personal Care</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Skincare</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Hair Care</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Perfume & Fragrance</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Makeup</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Soaps & Body Wash</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Dental Care</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Natural Ingredients</span>
+                <span class="cat-chip">Shea Butter</span>
+                <span class="cat-chip">Men's Cologne</span>
+                <span class="cat-chip">Organic</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-fashion">
+              <div class="cat-panel-title">👗 Fashion & Accessories</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Women's Clothing</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Men's Clothing</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Bags & Totes</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Jewelry</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Footwear</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Hats & Headwear</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Handwoven</span>
+                <span class="cat-chip">Abaca</span>
+                <span class="cat-chip">Barong</span>
+                <span class="cat-chip">Bayong Bags</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-tech">
+              <div class="cat-panel-title">💻 Technology</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Gadgets & Accessories</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Cable Organizers</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Phone Cases</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Smart Devices</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Power Tools</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Audio</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Inventors</span>
+                <span class="cat-chip">Solar Powered</span>
+                <span class="cat-chip">Eco Tech</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-health">
+              <div class="cat-panel-title">🌿 Health & Wellness</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Herbal Remedies</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Vitamins & Supplements</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Muscle Relief</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Essential Oils</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Fitness Gear</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Mental Wellness</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Lagundi</span>
+                <span class="cat-chip">Sambong</span>
+                <span class="cat-chip">Moringa</span>
+                <span class="cat-chip">Herbal</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-food">
+              <div class="cat-panel-title">🍜 Food & Beverage</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Condiments & Sauces</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Snacks</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Jams & Preserves</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Beverages</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Sweets & Delicacies</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Dried Goods</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Calamansi</span>
+                <span class="cat-chip">Ube</span>
+                <span class="cat-chip">Bagoong</span>
+                <span class="cat-chip">Tablea</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-arts">
+              <div class="cat-panel-title">🎨 Arts & Crafts</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Pottery & Ceramics</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Paintings</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Handmade Jewelry</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Woodcraft</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Textile Art</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Sculpture</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Burnay Clay</span>
+                <span class="cat-chip">Paete Woodcraft</span>
+                <span class="cat-chip">Buri Weave</span>
+              </div>
+            </div>
+
+            <div class="cat-panel" id="panel-edu">
+              <div class="cat-panel-title">📚 Education</div>
+              <div class="cat-subcategories">
+                <a class="cat-sub-link"><span class="sub-dot"></span>Books & Publications</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Learning Kits</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Educational Toys</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Stationery</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>STEM Kits</a>
+                <a class="cat-sub-link"><span class="sub-dot"></span>Art Supplies</a>
+              </div>
+              <div class="cat-featured-label">Popular Tags</div>
+              <div class="cat-featured-chips">
+                <span class="cat-chip">Baybayin</span>
+                <span class="cat-chip">History</span>
+                <span class="cat-chip">Science</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="index.html">🏠 Home</a>
+      <a href="wishlist.html">❤️ Wishlist</a>
+      <a href="orderhistory.html">🕐 Order History</a>
+      <a href="featuredproducts.html">⭐ Featured</a>
+      <a href="bestsellers.html">🔥 Best Sellers</a>
+      <a href="imbento-category.html">✨ New Products</a>
+      <a href="becomeaffiliate.html" class="verify-btn">✅ Verify Member</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">🤝 Affiliate Program</div>
+      <h1 class="hero-title">Earn While You<br>Share <span>Filipino</span><br>Innovation</h1>
+      <p class="hero-desc">Join Imbento Masagana's affiliate program and earn commissions by promoting proudly Filipino-made products. The more you share, the more you earn — it's that simple.</p>
+      <div class="hero-perks">
+        <div class="hero-perk"><div class="perk-dot">💰</div><span><strong>Up to 15% commission</strong> per successful sale</span></div>
+        <div class="hero-perk"><div class="perk-dot">⚡</div><span><strong>Real-time dashboard</strong> to track your earnings</span></div>
+        <div class="hero-perk"><div class="perk-dot">💳</div><span><strong>Monthly payouts</strong> via GCash, Maya or bank transfer</span></div>
+        <div class="hero-perk"><div class="perk-dot">🇵🇭</div><span><strong>Support local inventors</strong> while growing your income</span></div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">500<span>+</span></div><div class="hero-stat-label">Active Affiliates</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">15<span>%</span></div><div class="hero-stat-label">Max Commission</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">₱2M<span>+</span></div><div class="hero-stat-label">Paid Out</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">48h</div><div class="hero-stat-label">Approval Time</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="commission-card">
+        <div class="commission-title">Commission Tiers</div>
+        <div class="tiers">
+          <div class="tier">
+            <div class="tier-icon">🥉</div>
+            <div class="tier-info">
+              <div class="tier-name">Starter</div>
+              <div class="tier-range">0 – 10 sales/month</div>
+            </div>
+            <div class="tier-rate">5%</div>
+          </div>
+          <div class="tier">
+            <div class="tier-icon">🥈</div>
+            <div class="tier-info">
+              <div class="tier-name">Growth</div>
+              <div class="tier-range">11 – 50 sales/month</div>
+            </div>
+            <div class="tier-rate">10%</div>
+          </div>
+          <div class="tier gold-tier">
+            <div class="tier-icon">🏆</div>
+            <div class="tier-info">
+              <div class="tier-name">Elite</div>
+              <div class="tier-range">51+ sales/month</div>
+            </div>
+            <div class="tier-rate">15%</div>
+          </div>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-icon">📅</div>
+        <div class="mini-card-text"><strong>Monthly Payouts</strong>Every 15th of the month via GCash, Maya, or bank</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-icon">🔗</div>
+        <div class="mini-card-text"><strong>90-Day Cookie Window</strong>Earn commission even if they buy 90 days later</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── HOW IT WORKS ── -->
+<div class="how-section">
+  <div class="section-label">Simple Process</div>
+  <div class="section-title">How It Works</div>
+  <div class="steps-row">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <span class="step-emoji">📋</span>
+      <div class="step-name">Apply Below</div>
+      <div class="step-desc">Fill out the affiliate form with your info and how you plan to promote Filipino products.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <span class="step-emoji">✅</span>
+      <div class="step-name">Get Approved</div>
+      <div class="step-desc">Our team reviews your application within 48 hours and sends your unique referral link.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <span class="step-emoji">📣</span>
+      <div class="step-name">Share & Promote</div>
+      <div class="step-desc">Post your link on social media, blogs, or groups. Every click is tracked automatically.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <span class="step-emoji">💸</span>
+      <div class="step-name">Earn Commissions</div>
+      <div class="step-desc">Get paid every month directly to your GCash, Maya, or bank account. No minimums.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FORM SECTION ── -->
+<div class="form-section">
+
+  <!-- Benefits sidebar -->
+  <div class="benefits-col">
+    <h3>Why Join Our<br>Affiliate Program?</h3>
+    <p>Thousands of Filipinos are already earning by promoting locally made products they believe in. Here's what you get:</p>
+
+    <div class="benefit-list">
+      <div class="benefit-item">
+        <div class="benefit-icon bi-purple">💰</div>
+        <div class="benefit-text">
+          <strong>Competitive Commissions</strong>
+          <span>Earn 5–15% on every sale. The more you sell, the more you earn with our tiered system.</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon bi-gold">📊</div>
+        <div class="benefit-text">
+          <strong>Live Earnings Dashboard</strong>
+          <span>Track clicks, conversions, and payouts in real time through your affiliate portal.</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon bi-green">⚡</div>
+        <div class="benefit-text">
+          <strong>Fast Monthly Payouts</strong>
+          <span>Get paid on the 15th of every month, directly to your preferred payment method.</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon bi-blue">🎓</div>
+        <div class="benefit-text">
+          <strong>Free Marketing Materials</strong>
+          <span>Access banners, captions, and promotional graphics designed to help you convert.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-text">"I started sharing Imbento products on my Facebook group and earned ₱8,500 in my first month. Napakadali — you just share what you love!"</div>
+      <div class="testimonial-author">
+        <div class="t-avatar">🙋</div>
+        <div>
+          <div class="t-name">Maria Santos</div>
+          <div class="t-role">Elite Affiliate · Quezon City</div>
+        </div>
+        <div class="t-earn">₱8,500/mo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form card -->
+  <div class="form-card">
+    <div class="form-card-header">
+      <h3>Affiliate Application</h3>
+      <p>Complete both sections below — takes less than 3 minutes</p>
+      <div class="form-progress">
+        <div class="prog-step done" id="prog1"></div>
+        <div class="prog-step active" id="prog2"></div>
+        <div class="prog-step" id="prog3"></div>
+      </div>
+    </div>
+
+    <div class="form-body">
+
+      <!-- Section 1: Account Info -->
+      <div class="form-section-label">
+        <div class="fsl-icon">👤</div>
+        <div>
+          <div class="fsl-text">Account Information</div>
+          <div class="fsl-sub">Create your Imbento affiliate login</div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Full Name <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">👤</span>
+            <input type="text" placeholder="Juan dela Cruz" id="fullName" oninput="updateProgress()">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Username <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">@</span>
+            <input type="text" placeholder="juandelacruz" oninput="updateProgress()">
+          </div>
+          <div class="field-hint">This will be part of your referral link</div>
+        </div>
+        <div class="form-group">
+          <label>Email Address <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">✉️</span>
+            <input type="email" placeholder="juan@email.com" id="email" oninput="updateProgress()">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Mobile Number <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">📱</span>
+            <input type="tel" placeholder="+63 9xx xxx xxxx" oninput="updateProgress()">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">🔒</span>
+            <input type="password" placeholder="Create a strong password" id="pw">
+            <button class="eye-btn" onclick="togglePw('pw')">👁</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">🔒</span>
+            <input type="password" placeholder="Re-enter password" id="cpw">
+            <button class="eye-btn" onclick="togglePw('cpw')">👁</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- Section 2: Verification -->
+      <div class="form-section-label">
+        <div class="fsl-icon">🪪</div>
+        <div>
+          <div class="fsl-text">Verification Information</div>
+          <div class="fsl-sub">Help us verify your identity and how you'll promote</div>
+        </div>
+      </div>
+
+      <div class="form-grid single" style="margin-bottom:16px">
+        <div class="form-group">
+          <label>Full Legal Name <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">🪪</span>
+            <input type="text" placeholder="As it appears on your valid ID">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid" style="margin-bottom:16px">
+        <div class="form-group">
+          <label>Full Address <span class="required">*</span></label>
+          <div class="input-wrap">
+            <span class="input-icon">📍</span>
+            <input type="text" placeholder="Street, Barangay, City">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Province / Region <span class="required">*</span></label>
+          <div class="input-wrap no-icon">
+            <select>
+              <option value="">Select province...</option>
+              <option>Metro Manila</option>
+              <option>Cebu</option>
+              <option>Davao del Sur</option>
+              <option>Pampanga</option>
+              <option>Iloilo</option>
+              <option>Laguna</option>
+              <option>Cavite</option>
+              <option>Rizal</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid" style="margin-bottom:16px">
+        <div class="form-group">
+          <label>Preferred Payout <span class="required">*</span></label>
+          <div class="input-wrap no-icon">
+            <select>
+              <option value="">Select method...</option>
+              <option>GCash</option>
+              <option>Maya (PayMaya)</option>
+              <option>BPI Bank Transfer</option>
+              <option>BDO Bank Transfer</option>
+              <option>UnionBank</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Account / GCash Number</label>
+          <div class="input-wrap">
+            <span class="input-icon">💳</span>
+            <input type="text" placeholder="09xx xxx xxxx or acct no.">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:16px">
+        <label>How will you promote Imbento products? <span class="required">*</span></label>
+        <div class="channel-grid">
+          <label class="channel-opt"><input type="checkbox"><span class="channel-label">📘 Facebook Page / Group</span></label>
+          <label class="channel-opt"><input type="checkbox"><span class="channel-label">📸 Instagram</span></label>
+          <label class="channel-opt"><input type="checkbox"><span class="channel-label">🎵 TikTok</span></label>
+          <label class="channel-opt"><input type="checkbox"><span class="channel-label">▶️ YouTube</span></label>
+          <label class="channel-opt"><input type="checkbox"><span class="channel-label">✍️ Blog / Website</span></label>
+          <label class="channel-opt"><input type="checkbox"><span class="channel-label">💬 Viber / Messenger</span></label>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:16px">
+        <label>Tell us more about your audience / reach <span class="required">*</span></label>
+        <div class="input-wrap no-icon">
+          <textarea placeholder="e.g. I have a Facebook group with 5,000 members focused on Filipino home products. I also run a lifestyle blog with 2,000 monthly visitors..."></textarea>
+        </div>
+        <div class="field-hint">Briefly describe your platform, audience size, and any relevant experience.</div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:20px">
+        <label>Referral Code (optional)</label>
+        <div class="input-wrap">
+          <span class="input-icon">🎟️</span>
+          <input type="text" placeholder="Were you referred by another affiliate?">
+        </div>
+      </div>
+
+      <div class="terms-box">
+        <input type="checkbox" id="agreeTerms">
+        <span>I agree to Imbento Masagana's <a href="#">Affiliate Terms & Conditions</a>, <a href="#">Privacy Policy</a>, and confirm that all information provided is accurate and true.</span>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-submit" onclick="submitForm()">
+          🤝 &nbsp;Submit Application
+        </button>
+      </div>
+      <div class="form-security" style="justify-content:center; margin-top:12px">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Your information is protected with 256-bit SSL encryption
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <div class="success-icon">🤝</div>
+    <h2>Application Submitted!</h2>
+    <p>Thank you for applying! Our team will review your application within <strong>48 hours</strong> and send you an email with your affiliate details.</p>
+    <p style="margin-bottom:20px;font-size:13px">Here's your reference code:</p>
+    <div class="ref-code">AFF-2026-08742</div>
+    <div class="success-next">
+      <button class="btn-success-primary" onclick="window.location='index.html'">🏠 Back to Home</button>
+      <button class="btn-success-ghost" onclick="document.getElementById('successOverlay').classList.remove('show')">View Dashboard</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="logowhite.png" style="height:80px;width:auto;" alt="Imbento Masagana"></a>
+        <p>Imbento Masagana is the premier online platform dedicated exclusively to Filipino-invented and locally made products. Supporting Filipino innovation, one product at a time.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="returnpolicy.html">Return Policy</a>
+        <a href="support.html">Support Policy</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="blog.html">Blog</a>
+        <a href="loginandsignup.html?mode=seller&tab=register">Become a Seller</a>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="featuredproducts.html">Featured Products</a>
+        <a href="bestsellers.html">Best Sellers</a>
+        <a href="imbento-category.html">New Arrivals</a>
+        <a href="flashdeals.html">Flash Deals</a>
+        <a href="allcategories.html">All Categories</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <div class="contact-item"><span class="ci">📍</span><span>Unit 503 JMJ Building Pat Antonio Sta Mesa Manila</span></div>
+        <div class="contact-item"><span class="ci">📞</span><span>(02) 8664-3183</span></div>
+        <div class="contact-item"><span class="ci">✉️</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe97909891be97939c9b908a91d08e96">[email&#160;protected]</a></span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Imbento Masagana. All rights reserved.</p>
+      <div class="seller-links">
+        <a href="loginandsignup.html?mode=seller&tab=login">Login as Seller</a>
+        <a href="loginandsignup.html?mode=seller&tab=register">Become a Seller</a>
+        <a href="becomeaffiliate.html">Be an Affiliate Partner</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Your Cart (<span id="cartCountHeader">3</span>)</h2>
+    <button class="close-cart" onclick="toggleCart()">✕</button>
+  </div>
+  
+  <div class="cart-items" id="cartItemsContainer">
+      <!-- Populated by js/cart.js -->
+  </div>
+
+  <div class="cart-footer">
+    <div class="promo-box">
+      <input type="text" placeholder="Promo / Referral Code" id="promoInput">
+      <button onclick="applyPromo()">Apply</button>
+    </div>
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">₱2,550</span>
+    </div>
+    <button class="checkout-btn" onclick="window.location='checkout.html'">Proceed to Checkout</button>
+    <button class="continue-btn" onclick="toggleCart()">Continue Shopping</button>
+  </div>
+</div>
+
+<script src="js/cart.js"></script>
+
+<script>
+  function togglePw(id) {
+    const el = document.getElementById(id);
+    el.type = el.type === 'password' ? 'text' : 'password';
+  }
+
+  let progressVal = 0;
+  function updateProgress() {
+    const filled = [
+      document.getElementById('fullName'),
+      document.getElementById('email'),
+    ].filter(el => el && el.value.trim() !== '').length;
+    const steps = document.querySelectorAll('.prog-step');
+    if (filled >= 1) { steps[0].classList.add('done'); steps[1].classList.add('active'); }
+    if (filled >= 2) { steps[1].classList.add('done'); steps[2].classList.add('active'); }
+  }
+
+  function submitForm() {
+    const agreed = document.getElementById('agreeTerms').checked;
+    if (!agreed) {
+      alert('Please agree to the Terms & Conditions before submitting.');
+      return;
+    }
+    document.getElementById('successOverlay').classList.add('show');
+  }
+
+  // ── CATEGORIES DROPDOWN ──
+  function toggleCat() {
+    const trigger = document.getElementById('catTrigger');
+    const menu = document.getElementById('catMenu');
+    trigger.classList.toggle('open');
+    menu.classList.toggle('open');
+  }
+
+  function showPanel(id) {
+    document.querySelectorAll('.cat-sidebar-item').forEach(el => el.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+  }
+
+  document.addEventListener('click', function(e) {
+    const wrap = document.querySelector('.cat-dropdown-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+      const trigger = document.getElementById('catTrigger');
+      const menu = document.getElementById('catMenu');
+      if (trigger) trigger.classList.remove('open');
+      if (menu) menu.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
